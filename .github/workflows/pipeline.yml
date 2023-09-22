@@ -3,7 +3,6 @@ jobs:
   print-hello-world:
     runs-on: ubuntu-latest
     steps:
-<<<<<<< HEAD
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -13,14 +12,3 @@ jobs:
           projectBaseDir: my-custom-directory
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-=======
-      - name: executing remote ssh commands password
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: 22
-          script: chmod +x run.sh && ./run.sh
-     
->>>>>>> c36c8c7d3c2f9d03542b80a7a735b1742a4c6dab
