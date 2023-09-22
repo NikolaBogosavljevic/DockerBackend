@@ -3,12 +3,12 @@ jobs:
   print-hello-world:
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands
-        uses: appleboy/ssh-action@v1.0.0
+      - uses: actions/checkout@v4
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: 22
-          script: chmod +x run.sh && ./run.sh
-     
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: my-custom-directory
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
