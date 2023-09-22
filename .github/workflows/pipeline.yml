@@ -3,7 +3,7 @@ jobs:
   print-hello-world:
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands
+      - name: executing remote ssh commands password
         uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
